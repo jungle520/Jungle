@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dalaoyang</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="item-inner">
+    <div class="item-title label">验证码</div>
+    <input type="text" id="j_captcha" placeholder="验证码">
+    <div class="item-input">
+        <img id="captcha_img" alt="点击更换" title="点击更换"
+             onclick="changeVerifyCode(this)" src="../getKaptchaImage"/>
+    </div>
+</div>
+<script th:inline="javascript">
+    function changeVerifyCode(img) {
+        img.src = "../getKaptchaImage?" + Math.floor(Math.random() * 100);
+    }
+
+</script>
+</body>
+</html>
